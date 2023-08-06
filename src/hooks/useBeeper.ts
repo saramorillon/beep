@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { IAction } from '../models/IAction'
 
-const beep = new Audio('/beep.aac')
+const beep = new Audio('./beep.aac')
 
 export function useBeeper(action?: IAction) {
   useEffect(() => {
