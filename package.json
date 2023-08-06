@@ -1,6 +1,6 @@
 {
   "name": "beep",
-  "private": true,
+  "version": "1.0.0",
   "scripts": {
     "prebuild": "tsc -p tsconfig.build.json",
     "build": "vite build",
