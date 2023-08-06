@@ -1,0 +1,26 @@
+.tabler-icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+  margin-top: -0.25em;
+}
+
+.gap1 {
+  gap: 0.5rem;
+}
+
+.timeline {
+  align-items: flex-end;
+  height: 10rem;
+  transition: all 0.2s linear;
+}
+
+.timeline-item {
+  flex-shrink: 0;
+  transition: all 0.2s linear;
+  font-size: 4rem;
+}
+
+.timeline-item.active {
+  font-size: 5rem;
+}
