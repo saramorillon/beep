@@ -1,6 +1,7 @@
 import { IconPlayerPlay } from '@tabler/icons-react'
 import React, { FormEvent, useCallback, useRef } from 'react'
 import { IExercise } from '../models/IExercise'
+import { formatDuration } from '../utils/duration'
 
 interface IExerciseProps {
   exercise?: IExercise
@@ -11,6 +12,7 @@ export function Exercise({ exercise, onRun }: IExerciseProps) {
   if (exercise) {
     return (
       <article className="mt1 flex items-center gap1">
+        <kbd>{formatDuration(exercise)}</kbd>
         <span className="nowrap">{exercise.name}</span>
         <code>{exercise.values.join(' ')}</code>
         <button data-variant="primary" className="ml-auto nowrap" onClick={() => onRun(exercise)}>

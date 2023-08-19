@@ -3,6 +3,7 @@ import React from 'react'
 import { useAction } from '../hooks/useAction'
 import { useBeeper } from '../hooks/useBeeper'
 import { IExercise } from '../models/IExercise'
+import { formatDuration } from '../utils/duration'
 
 interface ITimelineProps {
   exercise?: IExercise
@@ -26,7 +27,7 @@ export function Timeline({ exercise, onStop }: ITimelineProps) {
         <button type="button" onClick={onStop} data-variant="outlined" className="absolute right-0">
           <IconPlayerStop /> Stop
         </button>
-        {exercise.name || 'Serie'}
+        {exercise.name || 'Serie'} <kbd>{formatDuration(exercise)}</kbd>
       </h1>
       <div
         className="timeline flex overflow-hidden"
