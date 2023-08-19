@@ -1,6 +1,16 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { IAction } from '../models/IAction'
 
+function toActions(values: number[]) {
+  return values.reduce((acc: IAction[], curr: number, index) => {
+    for (let value = curr; value > 0; value--) {
+      acc.push({ index, value, beep: false })
+    }
+    acc.push({ index, value: 0, beep: true })
+    return acc
+  }, [])
+}
+
 export function useAction(values: number[]) {
   const [action, setAction] = useState<IAction>()
   const timeoutId = useRef<NodeJS.Timeout>()
@@ -24,14 +34,4 @@ export function useAction(values: number[]) {
   }, [action, update])
 
   return action
-}
-
-function toActions(values: number[]) {
-  return values.reduce((acc: IAction[], curr: number, index) => {
-    for (let value = curr; value > 0; value--) {
-      acc.push({ index, value, beep: false })
-    }
-    acc.push({ index, value: 0, beep: true })
-    return acc
-  }, [])
 }
